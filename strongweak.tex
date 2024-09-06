@@ -1,0 +1,381 @@
+\documentclass[10pt,openany]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,hmargin={4cm,4cm},vmargin={3.5cm,3.5cm}]{geometry}
+\usepackage[colorlinks=true,bookmarksopen=false,linkcolor=blue,citecolor=red]{hyperref}
+\usepackage{subfiles}
+\usepackage{calc} 
+\usepackage{datetime}
+\usepackage{comment}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsrefs}
+\usepackage{tcolorbox}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{dsfont}
+\usepackage{euscript}
+\usepackage{fourier-orns}
+\usepackage{datetime2} 
+%\usepackage{pxfonts}
+%\usepackage{newpxtext}
+%\usepackage{tgpagella}
+\usepackage{palatino}
+\usepackage[sc]{mathpazo} % add possibly `sc` and `osf` options
+%\usepackage{eulervm}
+%\usepackage[adobe-utopia]{mathdesign}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+% \usepackage{tikz}
+% \usetikzlibrary{tikzmark}
+
+\usepackage{tikz-cd}
+\tikzcdset{
+arrow style=tikz,
+diagrams={>=latex}
+}
+
+\linespread{1.1}
+\setlength{\parindent}{0ex}
+\setlength{\parskip}{.4\baselineskip}
+\definecolor{blue}{rgb}{0, 0.1, 0.6}
+
+\DeclareFontFamily{OT1}{pzc}{}
+\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.10] pzcmi7t}{}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\newcommand{\mylabel}[1]{{\ssf{#1}}\hfill}
+\renewenvironment{itemize}
+  {\begin{list}{}{%
+   \setlength{\parskip}{0mm}
+   \setlength{\topsep}{.2\baselineskip}
+   \setlength{\rightmargin}{0mm}
+   \setlength{\listparindent}{0mm}
+   \setlength{\itemindent}{0mm}
+   \setlength{\labelwidth}{2ex}
+   \setlength{\itemsep}{.1\baselineskip}
+   \setlength{\parsep}{0mm}
+   \setlength{\partopsep}{0mm}
+   \setlength{\labelsep}{1ex}
+   \setlength{\leftmargin}{\labelwidth+\labelsep}
+   \let\makelabel\mylabel
+   }}
+   {\vspace*{-.3\baselineskip}\end{list}}
+
+\def\E{\exists}
+\def\A{\forall}
+\def\mdot{\mathord\cdot}
+\def\models{\vDash}
+\def\pmodels{\mathrel{\models\kern-1.5ex\raisebox{.5ex}{*}}}
+\def\notmodels{\nvDash}
+\def\proves{\vdash}
+\def\notproves{\nvdash}
+\def\proves{\vdash}
+\def\provesT{\mathrel{\mathord{\vdash}\hskip-1.13ex\raisebox{-.5ex}{\tiny$T$}}}
+\def\ZZ{\mathds Z}
+\def\NN{\mathds N}
+\def\QQ{\mathds Q}
+\def\RR{\mathds R}
+\def\BB{\mathds B}
+\def\CC{\mathds C}
+\def\PP{\mathds P}
+\def\Ar{{\rm Ar}}
+\def\dom{\mathop{\rm dom}}
+\def\range{\mathop{\rm rng}}
+\def\rank{\mathop{\rm rank}}
+\def\dcl{\mathop{\rm dcl}}
+\def\acl{\mathop{\rm acl}}
+\def\fp{{\rm fp}}
+\def\cf{\mathop{\rm cf}}
+\def\rad{\mathop{\rm rad}}
+\def\eq{{{\rm eq}}}
+\def\ccl{{\rm ccl}}
+\def\Th{{\rm Th}}
+\def\Diag{{\rm Diag}}
+\def\Mod{\mathop{\rm Mod}}
+\def\Rmod{{\mbox{\scriptsize $R$-mod}}}
+\def\Aut{{\rm Aut\kern.15ex}}
+\def\Autf{\mathord{\rm Aut\kern.15ex{f}\kern.15ex}}
+\def\Cb{{\rm Cb\kern.15ex}}
+\def\orbit{\O}
+\def\oorbit{\mathpzc{o}}
+\def\oorbitf{\mathpzc{of\!}}
+\def\id{{\rm id}}
+\def\tp{{\rm tp}}
+\def\qftp{{\rm qf\mbox{-}tp}}
+\def\attp{{\rm at\mbox{-}tp}}
+\def\atpmtp{\mbox{\rm at$^{\scriptscriptstyle\pm}$-tp}}
+\def\Deltatp{\Delta\mbox{\rm -tp}}
+\def\pmDelta{\Delta\hskip-.3ex\raisebox{1ex}{$\scriptscriptstyle\pm$}}
+\def\pmDeltatp{\noindent\pmDelta\hskip-.3ex{\rm -tp}}
+\def\EMtp{\mbox{{\small EM}-tp}}
+
+\def\nonfork{\mathop{\raise0.2ex\hbox{\ooalign{\hidewidth$\vert$\hidewidth\cr\raise-0.9ex\hbox{$\smile$}}}}}
+
+%\def\nonforkc{\mathbin{\raise1.2ex\rlap{\kern1.3ex$\cdot$}\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$} } }
+%\def\cnonfork{\mathbin{\raise1.3ex\rlap{\kern0.4ex$\cdot$}\raise0.6ex\rlap{\kern0.85ex$\vert$}\raise-0.3ex\hbox{$\smile$}} }
+
+\def\cnonfork{\mathbin{\raise1.8ex\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$} } }
+
+\def\nonforkc{\mathbin{\raise1.8ex\rlap{\kern1.1ex\rule{0.6ex}{0.1ex}}\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$} } }
+
+\def\QED{}
+\def\cpaw{\mathbin{\ooalign{\kern-0.4ex$-$\hidewidth\cr$<$}}}
+\def\cpawdot{\ooalign{$\kern1.2ex\cdot$\cr$\cpaw$\cr}}
+\def\cev#1{\reflectbox{\ensuremath{\vec{\reflectbox{\ensuremath{#1}}}}}}
+
+\def\sm{\smallsetminus}
+\def\atpmL{L_{\rm at^{\scriptscriptstyle\pm}}}
+\def\qfL{L_{\rm qf}}
+\def\atL{L_{\rm at}}
+\def\simdiff{\triangle}
+\def\IMP{\Rightarrow}
+\def\PMI{\Leftarrow}
+\def\IFF{\Leftrightarrow}
+\def\NIFF{\nLeftrightarrow}
+\def\imp{\rightarrow}
+\def\pmi{\leftarrow}
+\def\iff{\leftrightarrow}
+\def\niff{\mathrel{{\leftrightarrow}\llap{\raisebox{-.1ex}{{\small$/$}}\hskip.5ex}}}
+\def\nequiv{\mathrel{\mbox{$\equiv$\llap{{\small$/$}\hskip.3ex}}}}
+\def\equivEM{\stackrel{\smash{\scalebox{.5}{\rm EM}}}{\equiv}}
+\def\equivL{\stackrel{\smash{\scalebox{.5}{\rm L}}}{\equiv}}
+\def\equivKP{\stackrel{\smash{\scalebox{.5}{\rm KP}}}{\equiv}}
+\def\equivSh{\stackrel{\smash{\scalebox{.5}{\rm Sh}}}{\equiv}}
+\def\dIFF{\IFF\hskip-2.2ex\smash{\raisebox{1.3ex}{\tiny def}}}
+\def\swedge{\mathbin{\raisebox{.2ex}{$\scriptscriptstyle\mathbin\wedge$}}}
+\def\svee{\mathbin{\raisebox{.2ex}{$\scriptscriptstyle\mathbin\vee$}}}
+
+\def\bigsum{\mathop{\mbox{\large$\displaystyle\sum$}}}
+\def\bigint{\mathop{\mbox{\large$\displaystyle\int$}}}
+
+%\def\hookdoubleheadrightarrow{\hookrightarrow\mathrel{\mspace{-15mu}}\rightarrow}
+
+\def\isomap{\mathrel{\rlap{\kern0.7ex\raisebox{.7ex}{\scriptsize$\kern.2ex\sim$}}\rightarrow}}
+
+\def\P{\EuScript P}
+\def\D{\EuScript D}
+\def\Aa{\EuScript A}
+\def\Ee{\EuScript E}
+\def\X{\EuScript X}
+\def\Y{\EuScript Y}
+\def\Z{\EuScript Z}
+\def\C{\EuScript C}
+\def\U{\EuScript U}
+\def\Hh{\EuScript H}
+\def\I{\EuScript I}
+\def\V{\EuScript V}
+\def\W{\EuScript W}
+\def\R{\EuScript R}
+\def\F{\EuScript F}
+\def\G{\EuScript G}
+\def\B{\EuScript B}
+\def\M{\EuScript M}
+\def\Ll{\EuScript L}
+\def\K{\EuScript K}
+\def\O{\EuScript O}
+\def\J{\EuScript J}
+\def\S{\EuScript S}
+\def\<{\langle}
+\def\>{\rangle}
+\def\0{\varnothing}
+\def\theta{\vartheta}
+\def\phi{\varphi}
+\def\epsilon{\varepsilon}
+\def\ssf#1{\textsf{\small #1}}
+
+\titlecontents{chapter}
+[0ex] % ie, 1.5em (chapter) + 2.3em
+{\vskip-1ex\bfseries}
+{\contentslabel{1.2em}}
+{\hspace*{-2.3em}}
+{\titlerule*[1pc]{}}
+
+\titlecontents{section}
+[3.8em] % ie, 1.5em (chapter) + 2.3em
+{\vskip-1ex}
+{\contentslabel{2.2em}}
+{\hspace*{-2.3em}}
+{\titlerule*[1pc]{}\contentspage}
+
+\titleformat
+{\chapter} % command
+[display] % shape
+{\bfseries\LARGE} % format
+{Chapter \ \thechapter} % label
+{0.5ex} % sep
+{} % before-code
+[] % after-code
+\titleformat{\section}[block]{\Large\bfseries}{\makebox[5ex][r]{\textbf{\thesection}}}{1.5ex}{}
+\titlespacing*{\chapter}{0em}{.5ex plus .2ex minus .2ex}{2.3ex plus .2ex}
+\titlespacing*{\section}{-9.7ex}{3ex plus .5ex minus .5ex}{1ex plus .2ex minus .2ex}
+
+% \renewcommand*\thesection{\arabic{section}}
+
+\newtheoremstyle{mio}% name
+     {2\parskip}     % Space above
+     {2\parskip}     % Space below
+     {}%         Body font
+     {}%         Indent amount (empty = no indent, \parindent = para indent)
+     {\bfseries}% Thm head font
+     {}%        Punctuation after thm head
+     {1ex}%     Space after thm head: " " = normal interword space;
+           %   \newline = linebreak
+     {\llap{\thmnumber{#2}\hskip0.9ex}\thmname{#1}\thmnote{\bfseries{}#3}}% Thm head spec (can be left empty, meaning `normal')
+
+\newcounter{thm}[chapter]
+
+\renewcommand{\thethm}{\thechapter.\arabic{thm}}
+
+\tcbset{
+  mythm/.style={
+    colback=black!5!white,
+    colframe=white!50!black,
+    extrude right by=1ex,
+    extrude left by=6.5ex,
+    % before=\par\noindent,
+    % after=\par\noindent,
+    top=0.7ex,
+    bottom=1.5ex,
+    right=1ex,
+    left=6.5ex,
+    boxsep=0pt,
+    parbox=false,
+    before skip=\baselineskip,
+    after skip=\baselineskip,
+  },
+}
+\theoremstyle{mio}
+\newtheorem{theorem}[thm]{Theorem}\tcolorboxenvironment{theorem}{mythm}
+\newtheorem{corollary}[thm]{Corollary}\tcolorboxenvironment{corollary}{mythm}
+\newtheorem{proposition}[thm]{Proposition}\tcolorboxenvironment{proposition}{mythm}
+\newtheorem{lemma}[thm]{Lemma}\tcolorboxenvironment{lemma}{mythm}
+\newtheorem{fact}[thm]{Fact}\tcolorboxenvironment{fact}{mythm}
+\newtheorem{definition}[thm]{Definition}\tcolorboxenvironment{definition}{mythm}
+\newtheorem{assumption}[thm]{Assumption}\tcolorboxenvironment{assumption}{mythm}
+\newtheorem{void}[thm]{}\tcolorboxenvironment{void}{mythm}
+\newtheorem{remark}[thm]{Remark}\tcolorboxenvironment{remark}{mythm}
+\newtheorem{notation}[thm]{Notation}\tcolorboxenvironment{notation}{mythm}
+\newtheorem{note}[thm]{Note}\tcolorboxenvironment{note}{mythm}
+\newtheorem{exercise}[thm]{Exercise}
+\newtheorem{example}[thm]{Example}\tcolorboxenvironment{example}{mythm}
+
+\makeatletter
+\providecommand{\proofNameStyle}{\bfseries}
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont% \topsep6\p@\@plus6\p@\relax
+  % \vspace*{-\baselineskip}
+  \trivlist
+  \item[\hskip\labelsep
+        \proofNameStyle
+    #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
+\pagestyle{plain}
+
+\definecolor{violet}{RGB}{115, 0, 205}
+\definecolor{brown}{RGB}{150, 50, 10}
+\definecolor{green}{RGB}{5,110, 35}
+\definecolor{emphcolor}{rgb}{.90,.98,.98}
+
+\def\mr{\color{brown}}
+\def\gr{\color{green}}
+\def\vl{\color{violet}}
+
+\def\mrA{{\mr\Aa}}
+\def\mrB{{\mr\B}}
+\def\mrC{{\mr\C}}
+\def\mrD{{\mr\D}}
+\def\mrG{{\mr\G}}
+\def\mrU{{\mr\U}}
+\def\mrV{{\mr\V}}
+\def\mrW{{\mr\W}}
+\def\mrX{{\mr\X}}
+\def\grB{{\gr\B}}
+\def\grC{{\gr\C}}
+\def\grD{{\gr\D}}
+\def\grG{{\gr\G}}
+\def\grZ{{\gr\Z}}
+\def\grV{\V^{\gr z}}
+
+\renewcommand*{\emph}[1]{%
+\kern-0.3ex
+\smash{\tikz[baseline]\node[rectangle, fill=red!25!yellow!50!white, rounded corners, inner xsep=0.5ex, inner ysep=0.2ex, anchor=base, minimum height = 2.7ex]{#1};}\kern-0.5ex
+}
+
+\renewcommand*{\emph}[1]{%
+\kern-0.3ex
+\smash{\tikz[baseline]\node[rectangle, fill=black!20!yellow!50!white, rounded corners, inner xsep=0.5ex, inner ysep=0.2ex, anchor=base, minimum height = 2.7ex]{#1};}\kern-0.5ex
+}
+
+% \renewcommand*{\emph}[1]{%
+%    \tikz[baseline,%
+%       decoration={random steps,amplitude=1pt,segment length=15pt},%
+%       outer sep=-15pt, inner sep = 0pt%
+%     ]%
+%    \node[decorate,rectangle,fill=navcolor,anchor=text]{#1\xspace};%
+% }%
+
+%%%%%%% GETCOMMIT
+\newcommand\dotGitHEAD{}
+\newcommand\branch{}
+\newcommand\commit{}
+\makeatletter
+\let\myfilehandle\@inputcheck\makeatother
+
+\openin\myfilehandle=.git/HEAD\relax
+
+\begingroup\endlinechar-1
+  \global\read\myfilehandle to \dotGitHEAD
+\endgroup
+\closein\myfilehandle
+
+\newcommand\GetBranch{}
+\def\GetBranch ref: refs/heads/#1\relax{\renewcommand{\branch}{#1}}
+
+\expandafter\GetBranch\dotGitHEAD\relax
+\makeatother
+%%%%%%% END GETCOMMIT
+
+\begin{document}
+\raggedbottom
+\renewcommand{\contentsname}{%
+\addcontentsline{toc}{chapter}{Table of contents\\[-1.5ex]}
+A Cr\`eche Course in Model Theory\\[3ex]%
+\parbox{\textwidth}{\normalfont\normalsize
+Domenico Zambella\\
+Università di Torino\\
+ORCID:~%\href{https://orcid.org/0000-0003-1141-2898}%
+{0000-0003-1141-2898}\\[1ex]
+\texttt{Branch:\ \branch\ \DTMnow}}}
+\tableofcontents
+% \subfile{preface}
+\subfile{preliminaries}
+\subfile{elementarity}
+\subfile{types}
+\subfile{ultraproducts}
+\subfile{compactness}
+\subfile{relational}
+\subfile{rich}
+\subfile{algebraic}
+% \subfile{oalgebraic}
+\subfile{saturation}
+\subfile{elimination}
+\subfile{geometry}
+\subfile{countable}
+\subfile{imaginary}
+\subfile{invariant}
+\subfile{ramsey}
+\subfile{invariantL}
+\subfile{actions}
+\subfile{stability}
+\subfile{vc}
+% % \subfile{pseudofinite}
+% % \subfile{measures}
+\subfile{esame}
+% \subfile{references}
+\end{document}
