@@ -286,19 +286,19 @@ diagrams={>=latex}
 \begin{abstract}
   \setlength{\parindent}{0ex}
   \setlength{\parskip}{.4\baselineskip}
-  In a nutshell, a set is \textit{strongly generic\/} if the intersection of any finitely many of its translation is generic. 
-  I do not know if the notion has been studied in the context presented here. To demostrate its interest we use it for a short proof of (a generalization of) Newelski's theorem on the diamter of the Lascar graph, see Theorem~\ref{thm_newelski}.
+  In a nutshell, a set is \textit{strongly syndetic\/} if the intersection of any finitely many of its translation is syndetic (a.k.a.\@ generic). 
+  I do not know if the notion has been studied in the context presented here. To demostrate its interest I use it for a short proof of (a generalization of) Newelski's theorem on the diamter of the Lascar graph, see Theorem~\ref{thm_newelski}.
+
+  I only recently realized the connnections with topological dynamics (though, I see, it is written on the wall). I only adopted some terminologi and did not investigate further.
   
-  Theorem~\ref{thm_coalesce} shows that the phenomenon \textit{strongly generic = generic\/} has some interest (it is reminiscent of \textit{forking = dividing\/}).
+  Theorem~\ref{thm_coalesce} shows that the phenomenon \textit{strongly syndetic = syndetic\/} has some interest (it is reminiscent of \textit{forking = dividing\/}).
 
   In the last section I try to apply these notions to definable groups hoping to recover part of the stable group theory but I fail.
-  I think I am missing something important (or commit an error somewhere).
+  I think I am missing something important (or commit errors somewhere).
 \end{abstract}
 
 \def\medrel#1{\parbox[t]{5ex}{$\displaystyle\hfil #1$}}
 \def\ceq#1#2#3{\parbox[t]{17ex}{$\displaystyle #1$}\medrel{#2}{$\displaystyle #3$}}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -307,14 +307,14 @@ diagrams={>=latex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The two perspectives on the invariance of types}
 
-This section review well-known matter and set some terminology.
+This section I review well-known matter and set the terminology.
 
 Below $\Delta\subseteq L_{{\mr x}\,{\gr z}}(\U)$, ${\mrX}\subseteq\U^{\mr x}$, and ${\grZ}\subseteq\U^{\gr z}$ are some arbitrary nonempty sets (at some point we will require that $\mrX$ and $\grZ$ are type-definable).
 We write $L_\Delta({\grZ})$ for the set of formulas $\theta({\mr x})$ that are Boolean combination of formulas $\phi({\mr x}\;{\gr b})$ for some $\phi({\mr x}\;{\gr z})\in\Delta$ and some ${\gr b}\in{\grZ}$.
 Such formulas a called $\Delta$-formulas.
 A relatively $\Delta$-definable set is a set of the form $\theta(\mrX)$ for some $\Delta$-formula $\theta({\mr x})$.
 Subsets of $L_\Delta({\grZ})$ are called $\Delta$-types.
-We write $S_\Delta({\grZ})$ for the set of complete $\Delta$-types with parameters in $\grZ$ (there may be other parameters hidden ion $\Delta)$.
+We write $S_\Delta({\grZ})$ for the set of complete $\Delta$-types with parameters in $\grZ$. Beware that there may be other parameters hidden ion $\Delta)$.
 
 \begin{assumption}\label{notation_GXphi}
   Let $G$ be a group that acts on $\mrX$ and on $\grZ$ from the left.
@@ -348,21 +348,20 @@ Therefore $p({\mr x})\subseteq L_\Delta(\grZ)$ is invariant if
 
 where by $p({\mr x})\proves{\mr x}\in\mrD$ we understand $\theta(\mrX)\subseteq\mrD$ for some $\theta({\mr x})$ that is conjunction of formulas in $p({\mr x})$.
 
-A set $\mrD\subseteq\mrX$ is \emph{generic\/} under the action of $G$, or \emph{$G$-generic\/} for short, if finitely many $G$-translates of $\mrD$ cover $\mrX$; we say \emph{$n$-$G$-generic\/} if $\le n$ translates suffices.
-Dually, we say that $\mrD$ is \emph{persistent\/} under the action of $G$, or \emph{$G$-persistent\/} for short, if the intersection of any finitely many $G$-translates of $\mrD$ is nonempty; we say \emph{$n$-$G$-persistent\/} when the request is limited to $\le n$ translates.
+A set $\mrD\subseteq\mrX$ is \emph{syndetic\/} under the action of $G$, or \emph{$G$-syndetic\/} for short, if finitely many $G$-translates of $\mrD$ cover $\mrX$; we say \emph{$n$-$G$-syndetic\/} if $\le n$ translates suffices.
+Dually, we say that $\mrD$ is \emph{thick\/} under the action of $G$, or \emph{$G$-thick\/} for short, if the intersection of any finitely many $G$-translates of $\mrD$ is nonempty; we say \emph{$n$-$G$-thick\/} when the request is limited to $\le n$ translates.
 We may drop reference to $G$ when it is clear from the context.
 
 The same properties may be attributed to formulas (as these are identified with the set they define).
 When these properties are attributed to a type $p({\mr x})$, we understand that they hold for every conjunction of formulas in $p({\mr x})$.
-% See Exercise~\ref{ex_persistent_types} for an alternative characterization when $p({\mr x})$ is small.
+% See Exercise~\ref{ex_thick_types} for an alternative characterization when $p({\mr x})$ is small.
 
-\noindent\llap{\textcolor{red}{\Large\warning}\kern1.5ex}\ignorespaces
-The terminology above non-standard.
-In~\cite{CK} the authors write \textit{quasi-non-dividing\/} for \textit{persistent\/} when $G=\Aut(\U/A)$.
-Their terminology has good motivations, but it would be a mouthful if adapted to our context.
+The terminology is taken from topological dynamics (I hope correctly).
+Model theorists say generic for syndetic.
+In~\cite{CK} the authors write \textit{quasi-non-dividing\/} for \textit{thick\/} when $G=\Aut(\U/A)$.
 
 \begin{example}
-  If $p({\mr x})\subseteq L(\U)$ is finitely satisfiable in $A$ then $p({\mr x})$ is persistent (in any $\mrX\supseteq A^{\mr x}$) under the action of $\Aut(\U/A)$.
+  If $p({\mr x})\subseteq L(\U)$ is finitely satisfiable in $A$ then $p({\mr x})$ is thick (in any $\mrX\supseteq A^{\mr x}$) under the action of $\Aut(\U/A)$.
   In fact, the same ${\mr a}\in A^{\mr x}$ that satisfies $\phi({\mr x})$ also satisfies every $\Aut(\U/A)$-translate of $\phi({\mr x})$.
 \end{example}
 
@@ -372,8 +371,8 @@ In this chapter many proofs require some juggling with negations.
   (Assume~\ref{notation_GXphi})\ \  
   The following are equivalent
   \begin{itemize}
-    \item[1.] $\mrD$ is not $n$-generic
-    \item[2.] $\neg\mrD$ is $n$-persistent.
+    \item[1.] $\mrD$ is not $n$-syndetic
+    \item[2.] $\neg\mrD$ is $n$-thick.
   \end{itemize}
 \end{fact}
 
@@ -385,14 +384,14 @@ In this chapter many proofs require some juggling with negations.
   \end{itemize} 
 \end{proof}
 
-\begin{theorem}\label{thm_generic_invariant}
+\begin{theorem}\label{thm_syndetic_invariant}
   (Assume~\ref{notation_GXphi})\ \  
   Let $p({\mr x})\in S_\Delta(\grZ)$ be finitely satisfiable in $\mrX$.
   Then the following are equivalent
   \begin{itemize}
     \item[1.] $p({\mr x})$ is invariant
-    \item[2.] $p({\mr x})\proves{\mr x}\in\mrD$ for every generic relatively $\Delta$-definable set $\mrD$
-    \item[3.] $p({\mr x})$ is persistent.
+    \item[2.] $p({\mr x})\proves{\mr x}\in\mrD$ for every syndetic relatively $\Delta$-definable set $\mrD$
+    \item[3.] $p({\mr x})$ is thick.
   \end{itemize}
 \end{theorem}
 
@@ -409,22 +408,22 @@ In this chapter many proofs require some juggling with negations.
   
   \ssf2$\IMP$\ssf3.
   Let $\mrD$ be defined by a conjunction of formulas in $p({\mr x})$.
-  If $\mrD$ is not persistent then, by Fact~\ref{fact_fip}, $\neg\mrD$ is generic. 
+  If $\mrD$ is not thick then, by Fact~\ref{fact_fip}, $\neg\mrD$ is syndetic. 
   By \ssf2, $p({\mr x})\proves{\mr x}\notin\mrD$, a contradiction.
 
   \ssf3$\IMP$\ssf1.
-  % uppose $p({\mr x})$ is not $(n+2)$-persistent and let $n$ be minimal.
+  % uppose $p({\mr x})$ is not $(n+2)$-thick and let $n$ be minimal.
   % Let $g_1,\dots,g_{n+2}\in G$ and $\theta({\mr x})\,;{\gr\bar b}$ witness this.
   % Then 
   If $p({\mr x})$ is not invariant then, by completeness, $p({\mr x})\proves\phi({\mr x}\,;{\gr b})\wedge\neg\phi({\mr x}\,;g{\gr b})$ for some $g\in G$.
-  Clearly $\phi({\mr x}\,;{\gr b})\wedge\neg\phi({\mr x}\,;g{\gr b})$ is not persistent as it is inconsistent with its $g$-translate.
+  Clearly $\phi({\mr x}\,;{\gr b})\wedge\neg\phi({\mr x}\,;g{\gr b})$ is not thick as it is inconsistent with its $g$-translate.
 \end{proof}
 
 \begin{remark}
   In the theorem above, \ssf2 and \ssf3 can be replaced by
   \begin{itemize}
-    \item[2$'$\!.] $p({\mr x})\proves{\mr x}\in\mrD$ for every 2-generic relatively $\Delta$-definable set $\mrD$
-    \item[3$'$\!.] $p({\mr x})$ is 2-persistent.
+    \item[2$'$\!.] $p({\mr x})\proves{\mr x}\in\mrD$ for every 2-syndetic relatively $\Delta$-definable set $\mrD$
+    \item[3$'$\!.] $p({\mr x})$ is 2-thick.
   \end{itemize}
 \end{remark}
 
@@ -434,29 +433,32 @@ The theorem yields an immediate necessary condition for the existence of an inva
   (Assume~\ref{notation_GXphi})\ \  
   If there exists an invariant global $\Delta$-type then for every $\Delta$-definable set $\mrD$
   \begin{itemize}
-    \item[1.] $\mrD$ and $\neg\mrD$ cannot be both generic
-    \item[2.] if $\mrD$ is generic than it is persistent.
+    \item[1.] $\mrD$ and $\neg\mrD$ cannot be both syndetic
+    \item[2.] if $\mrD$ is syndetic than it is thick.
   \end{itemize}
 \end{corollary}
 
 \begin{proof}
-  By Fact~\ref{fact_fip}, \ssf1 and \ssf2 are equivalent; \ssf1 is an immediate consequenc of \ssf2 of Theorem~\ref{thm_generic_invariant}.
+  By Fact~\ref{fact_fip}, \ssf1 and \ssf2 are equivalent; \ssf1 is an immediate consequenc of \ssf2 of Theorem~\ref{thm_syndetic_invariant}.
 \end{proof}
 
 The following theorem gives a necessary and sufficient condition for the  existence of global invariant $\Delta$-type.
-Ideally, we would like to prove that every persistent $\Delta$-type extends to a global persitent type.
+Ideally, we would like to prove that every thick $\Delta$-type extends to a global persitent type.
 Unfortunately this is not true -- we need a stronger property.
-A $\Delta$-definable set $\mrD$ is \emph{hereditarely persistent\/} if every finite cover of $\mrD$ by $\Delta$-definable sets contains a persistent set.
-In~\cite{CK} a related property is called \textit{quasi-non-forking,} but we persist in the unorthodoxy.
-A type is hereditarely persistent if every conjunction of formulas in the type is hereditarely persistent.
+A $\Delta$-definable set $\mrD$ is \emph{hereditarely thick\/} if every finite cover of $\mrD$ by $\Delta$-definable sets contains a thick set.
+A type is hereditarely thick if every conjunction of formulas in the type is hereditarely thick.
 
-\begin{theorem}\label{thm_generic_invariant2}
+\noindent\llap{\textcolor{red}{\Large\warning}\kern1.5ex}\ignorespaces
+I do not know the term used in topological dynamics for hereditarely thick -- the terminology is provisional.
+In~\cite{CK} a related property is called \textit{quasi-non-forking.}
+
+\begin{theorem}\label{thm_syndetic_invariant2}
   (Assume~\ref{notation_GXphi})\ \  
   Let $q({\mr x})\subseteq L(\U)$.
   Then the following are equivalent 
   \begin{itemize}
     \item[1.] $q({\mr x})$ extends to an invariant type $p({\mr x})\in S_\Delta(\grZ)$ finitely satisfiable in $\mrX$
-    \item[2.] $q({\mr x})$ is hereditarely persistent.
+    \item[2.] $q({\mr x})$ is hereditarely thick.
   \end{itemize}
 \end{theorem}
 
@@ -465,25 +467,25 @@ A type is hereditarely persistent if every conjunction of formulas in the type i
   Let $\theta({\mr x})$ be a conjunction of formulas in $q({\mr x})$.
   Suppose ${\mr\C_1},\dots,{\mr\C_n}$ cover $\theta(\U^{\mr x})$ and pick $p({\mr x})$ as in \ssf1.
   By completeness, $p({\mr x})\proves {\mr x}\in{\mr\C_i}$ for some $i$.
-  Then, by Theorem~\ref{thm_generic_invariant}, $\neg{\mr\C_i}$ is not generic.
-  Therefore, by Fact~\ref{fact_fip}, ${\mr\C_i}$ is persistent.
+  Then, by Theorem~\ref{thm_syndetic_invariant}, $\neg{\mr\C_i}$ is not syndetic.
+  Therefore, by Fact~\ref{fact_fip}, ${\mr\C_i}$ is thick.
 
   \ssf2$\IMP$\ssf1.
-  Let $p({\mr x})$ be maximal among the $\Delta$-types that contain $q({\mr x})$ and are such that $\theta(\U^{\mr x})$ is hereditarely persistent for every $\theta({\mr x})$ that is conjunction of formulas in $p({\mr x})$.
+  Let $p({\mr x})$ be maximal among the $\Delta$-types that contain $q({\mr x})$ and are such that $\theta(\U^{\mr x})$ is hereditarely thick for every $\theta({\mr x})$ that is conjunction of formulas in $p({\mr x})$.
   We claim that $p$ is a complete $\Delta$-type.
   Suppose for a contradiction that $\theta({\mr x}),\neg\theta({\mr x})\notin p$.
-  By maximality there is some formula $\psi({\mr x})$, a conjunction of formulas in $p({\mr x})$ and some ${\mr\C_1},\dots,{\mr\C_n}$ that cover both $\psi(\U^{\mr x})\cap\theta(\U^{\mr x})$ and $\psi(\U^{\mr x})\smallsetminus\theta(\U^{\mr x})$ and such that no ${\mr\C_i}$ is persistent.
+  By maximality there is some formula $\psi({\mr x})$, a conjunction of formulas in $p({\mr x})$ and some ${\mr\C_1},\dots,{\mr\C_n}$ that cover both $\psi(\U^{\mr x})\cap\theta(\U^{\mr x})$ and $\psi(\U^{\mr x})\smallsetminus\theta(\U^{\mr x})$ and such that no ${\mr\C_i}$ is thick.
   As ${\mr\C_1},\dots,{\mr\C_n}$ cover $\psi(\U^{\mr x})$ this is a contradiction.
   It is only left to show that $p({\mr x})$ is finitely satisfiable in $\mrX$ and invariant.
-  Finite satisfiability follows from persistency.
-  From completeness and Theorem~\ref{thm_generic_invariant} we obtain invariance.
+  Finite satisfiability follows from thickness.
+  From completeness and Theorem~\ref{thm_syndetic_invariant} we obtain invariance.
 \end{proof}
 
-% \begin{exercise}\label{ex_persistent_types}
+% \begin{exercise}\label{ex_thick_types}
 %   Prove that for every $p(x)\subseteq L_\phi(A)$ following are equivalent
 %   \begin{itemize}
-%     \item[1.] $p(x)$ is persistent
-%     \item[2.] $p(\U^x)$ is persistent.
+%     \item[1.] $p(x)$ is thick
+%     \item[2.] $p(\U^x)$ is thick.
 %   \end{itemize}
 % \end{exercise}
 
@@ -494,29 +496,29 @@ A type is hereditarely persistent if every conjunction of formulas in the type i
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Strong genericity}\label{strong_genericity}
+\section{Strong syndeticty}\label{strong_syndeticty}
 
 Unfortunatelly, genericy is not preserved under intersection.
 To obtain closure under intersection, we need to push the concept to a higher level of complexity.
 This is only required in Section~\ref{newelski}.
 
-A set $\mrD\subseteq\U^{\mr x}$ is \emph{strongly generic\/} if the intersection of $\mrD$ with any of its tranlations $\mrD$ is generic.
-Dually, we say that $\mrD$ is \emph{weakly persistent\/} if the union of $\mrD$ with one of its translations is peristent.
+A set $\mrD\subseteq\U^{\mr x}$ is \emph{strongly syndetic\/} if the intersection of $\mrD$ with any of its tranlations $\mrD$ is syndetic.
+Dually, we say that $\mrD$ is \emph{weakly thick\/} if the union of $\mrD$ with one of its translations is peristent.
 Again, the same properties may be attributed to formulas and types.
 
 Notation: for $\mrB\subseteq\mrX$ and $H\subseteq G$ we write $H\,\mrB$ for $\{h\mrB: h\in H\}$.
 
 \begin{lemma}\label{lem_strongly_generic}
   (Assume~\ref{notation_GXphi})\ \  
-  The intersection of strongly generic sets is strongly generic.
+  The intersection of strongly syndetic sets is strongly syndetic.
 \end{lemma}
 
 \begin{proof}
   We may assume that all sets mentioned below are subsets of $\mrX$.
-  Let ${\mr\D}$ and ${\mr\C}$ be strongly generic and let $K\subseteq G$ be an arbitrary finite set.
-  It suffices to prove that $\mrB=\cap\, K\,({\mr\C}\cap{\mr\D})$ is generic. 
+  Let ${\mr\D}$ and ${\mr\C}$ be strongly syndetic and let $K\subseteq G$ be an arbitrary finite set.
+  It suffices to prove that $\mrB=\cap\, K\,({\mr\C}\cap{\mr\D})$ is syndetic. 
   Clearly $\mrB={\mr\C'}\cap{\mr\D'}$, where ${\mr\C'}=\cap\, K\,{\mr\C}$ and ${\mr\D'}=\cap\, K\,{\mr\D}$.
-  Note that ${\mr\C'}$ and ${\mr\D'}$ are both strongly generic.
+  Note that ${\mr\C'}$ and ${\mr\D'}$ are both strongly syndetic.
   In particular $\mrX=\cup\,H\,\mr\D'$ for some finite $H\subseteq G$.
   Now, from
   
@@ -528,34 +530,34 @@ Notation: for $\mrB\subseteq\mrX$ and $H\subseteq G$ we write $H\,\mrB$ for $\{h
   
   \ceq{}{=}{\cap\, H\,{\mr\C'}}
   
-  As ${\mrC'}$ is strongly generic, $\cap\, H\,{\mr\C'}$ is generic.
-  Therefore $\cup\,H\,\mrB$ is also generic.
-  The genericity of $\mrB$ follows.
+  As ${\mrC'}$ is strongly syndetic, $\cap\, H\,{\mr\C'}$ is syndetic.
+  Therefore $\cup\,H\,\mrB$ is also syndetic.
+  The syndeticty of $\mrB$ follows.
 \end{proof}
 
 \begin{corollary}\label{corol_str_gen}
   (Assume~\ref{notation_GXphi})\ \  
-  Let $q({\mr x})=\{\theta({\mr x})\in L_\phi(\U)\,:\, \theta({\mr x})\textrm{ strongly generic}\}$.
-  Then $q({\mr x})$ is finitely satisfiable in $\mrX$, strongly generic, and invariant.
+  Let $q({\mr x})=\{\theta({\mr x})\in L_\phi(\U)\,:\, \theta({\mr x})\textrm{ strongly syndetic}\}$.
+  Then $q({\mr x})$ is finitely satisfiable in $\mrX$, strongly syndetic, and invariant.
 \end{corollary}
 
 \begin{proof}
-  Strong genericity is an immediate consequence of Lemma~\ref{lem_strongly_generic}.
-  Finite satisfiability follows easily from genericity.
-  As for invariance, note that any translate of a strongly generic formula is also strongly generic.
+  Strong syndeticty is an immediate consequence of Lemma~\ref{lem_strongly_generic}.
+  Finite satisfiability follows easily from syndeticty.
+  As for invariance, note that any translate of a strongly syndetic formula is also strongly syndetic.
 \end{proof}
 
 \begin{corollary}\label{corol_q_w_pers}
   (Assume~\ref{notation_GXphi})\ \  
   Let $q({\mr x})$ be as in Corollary~\ref{corol_str_gen}.
   Let $p({\mr x})\subseteq L(\U)$ be such that $p({\mr x})\cup q({\mr x})$ is finitely satisfied in $\mrX$.
-  Then $p({\mr x})$ is weakly persistent.
+  Then $p({\mr x})$ is weakly thick.
 \end{corollary}
 
 \begin{proof}
   Let $\theta({\mr x})\in p$.
-  As $q({\mr x})$ is finitely satisfiable in $\theta(\U^{\mr x})$, we cannot have that $\neg\theta({\mr x})$ is strongly generic.
-  From Fact~\ref{fact_fip}, we obtain that $\neg\theta(\U^{\mr x})$ non strongly generic is equivalent to $\theta({\mr x})$ weakly persistent.
+  As $q({\mr x})$ is finitely satisfiable in $\theta(\U^{\mr x})$, we cannot have that $\neg\theta({\mr x})$ is strongly syndetic.
+  From Fact~\ref{fact_fip}, we obtain that $\neg\theta(\U^{\mr x})$ non strongly syndetic is equivalent to $\theta({\mr x})$ weakly thick.
 \end{proof}
 
 
@@ -588,15 +590,15 @@ By \ssf2, this metric in $G$-invariant.
 The \emph{diameter\/} of a set $\mrC\subseteq\mrX$ is the supremum of $d({\mr a},{\mr b})$ for ${\mr a},{\mr b}\in\mrC$.
 
 We are interested in sufficient conditions for $\mrX$ to have finite diameter.
-The notions introduced in Section~\ref{strong_genericity} offer some hints.
+The notions introduced in Section~\ref{strong_syndeticty} offer some hints.
 
 \begin{proposition}\label{prop_wpers_finite_diameter}
-  If $\mrX$ has a weakly persistent subset of finite diameter, then $\mrX$ itself has finite diamenter.
+  If $\mrX$ has a weakly thick subset of finite diameter, then $\mrX$ itself has finite diamenter.
 \end{proposition}
 
 \begin{proof}
-  Let $\mrC\subseteq\mrX$ be a weakly persistent set of diameter $n$.
-  Let $H\subseteq G$ be finite such that $\cup\,H\,\mrC$ is persistent.
+  Let $\mrC\subseteq\mrX$ be a weakly thick set of diameter $n$.
+  Let $H\subseteq G$ be finite such that $\cup\,H\,\mrC$ is thick.
   We claim that also $\cup\,H\,\mrC$ has finite diameter.
   Let ${\mr a}\in\mrC$ be arbitrary.
   Let $m$ be larger than $d(h{\mr a}, k{\mr a})$ for all $h,k,\in H$.
@@ -608,7 +610,7 @@ The notions introduced in Section~\ref{strong_genericity} offer some hints.
   \ceq{}{\le}{n+m+n.}
 
   This proves that $\cup\,H\,\mrC$ has finite diameter.
-  Therefore, without loss of generality, we may assume that $\mrC$ itself is persistent.
+  Therefore, without loss of generality, we may assume that $\mrC$ itself is thick.
   
   By the transitivity of the action, any two elements of $\mrX$ are of the form $h{\mr a}$, $k{\mr a}$ for some $h,k\in G$ and some ${\mr a}\in\mrC$.
   By percistency, there are ${\mr c}\in\mrC\cap h\mrC$ and ${\mr d}\in\mrC\cap k\mrC$.
@@ -627,10 +629,10 @@ The notions introduced in Section~\ref{strong_genericity} offer some hints.
 \end{theorem}
 
 \begin{proof}
-  By Proposition~\ref{prop_wpers_finite_diameter}, it suffices to prove that ${\mr\X_n}$ is weakly persistent.
+  By Proposition~\ref{prop_wpers_finite_diameter}, it suffices to prove that ${\mr\X_n}$ is weakly thick.
   Define
 
-  \ceq{\hfill q({\mr x})}{=}{\{\theta({\mr x})\in L(\U)\ :\ \theta({\mr x})\textrm{ strongly generic}\}.}
+  \ceq{\hfill q({\mr x})}{=}{\{\theta({\mr x})\in L(\U)\ :\ \theta({\mr x})\textrm{ strongly syndetic}\}.}
   
   By Corollary~\ref{corol_q_w_pers}, with $L$ for $L_\phi$, it suffices to prove that for some $n$ the type $q({\mr x})$ is finitely satisfied in $\mr\X_n$.
   Suppose not.
@@ -666,32 +668,32 @@ We prove the following theorem.
   (Assume~\ref{notation_GXphi})\ \  
   The following are equivalent
   \begin{itemize}
-    \item[1.] persistent $\Delta$-definable sets are hereditarely persistent
-    \item[2.] generic $\Delta$-definable sets are strongly generic
-    \item[3.] generic $\Delta$-definable sets are closed under intersection
-    \item[4.] weakly persisent $\Delta$-definable sets are persistent.
+    \item[1.] thick $\Delta$-definable sets are hereditarely thick
+    \item[2.] syndetic $\Delta$-definable sets are strongly syndetic
+    \item[3.] syndetic $\Delta$-definable sets are closed under intersection
+    \item[4.] weakly persisent $\Delta$-definable sets are thick.
   \end{itemize}
 \end{theorem}
 
 \begin{proof}
   \ssf1$\IMP$\ssf2.
-  It suffices to prove that generic sets are closed under intersection.
-  Let $\mrC$ and $\mrD$ be generic $\Delta$-definable sets.
-  Suppose for a contradiction that $\mrC\cap\mrD$ is not generic.
-  By \ssf1 and Theorem~\ref{thm_generic_invariant2} there is an invariant global $\Delta$-type $p({\mr x})$ containing ${\mr x}\in\neg\mrC\cup\neg\mrD$.
+  It suffices to prove that syndetic sets are closed under intersection.
+  Let $\mrC$ and $\mrD$ be syndetic $\Delta$-definable sets.
+  Suppose for a contradiction that $\mrC\cap\mrD$ is not syndetic.
+  By \ssf1 and Theorem~\ref{thm_syndetic_invariant2} there is an invariant global $\Delta$-type $p({\mr x})$ containing ${\mr x}\in\neg\mrC\cup\neg\mrD$.
   By completeness either $p({\mr x})\proves{\mr x}\in\neg\mrC$ or $p({\mr x})\proves{\mr x}\in\neg\mrD$.
-  This is a contradiction because, by Theorem~\ref{thm_generic_invariant}, $p({\mr x})\proves{\mr x}\in\mrC$ and $p({\mr x})\proves{\mr x}\in\mrD$.
+  This is a contradiction because, by Theorem~\ref{thm_syndetic_invariant}, $p({\mr x})\proves{\mr x}\in\mrC$ and $p({\mr x})\proves{\mr x}\in\mrD$.
 
   \ssf2$\IFF$\ssf3$\IFF$\ssf4. Clear.
 
   \ssf4$\IMP$\ssf1.
-  Let $q({\mr x})=\{\theta({\mr x})\in L_\phi(\U)\,:\,\theta({\mr x})\textrm{ generic}\}$.
+  Let $q({\mr x})=\{\theta({\mr x})\in L_\phi(\U)\,:\,\theta({\mr x})\textrm{ syndetic}\}$.
   By \ssf2 this is the same type defined in Corollary~\ref{corol_q_w_pers}.
-  Therefore, any completion of $q({\mr x})$ is, by \ssf4, persistent.
-  Let $\mrD$ be a persistent $\Delta$-definable set.
-  By Theorems~\ref{thm_generic_invariant} and~\ref{thm_generic_invariant2} it suffices to show that $\mrD$ is consistent with $q({\mr x})$.
+  Therefore, any completion of $q({\mr x})$ is, by \ssf4, thick.
+  Let $\mrD$ be a thick $\Delta$-definable set.
+  By Theorems~\ref{thm_syndetic_invariant} and~\ref{thm_syndetic_invariant2} it suffices to show that $\mrD$ is consistent with $q({\mr x})$.
   Suppose not, then $q({\mr x})\proves {\mr x}\in\neg\mrD$.
-  Therefore, by \ssf3, $\neg\mrD$ is generic.
+  Therefore, by \ssf3, $\neg\mrD$ is syndetic.
   This is a contradiction by Fact~\ref{fact_fip}.
 \end{proof}
 
@@ -704,12 +706,13 @@ We prove the following theorem.
 \section{Definable groups}
 
 In this section we set $G=\grZ$ and require that $\grZ$ and $\mrX$ are type-definable over $A$.
-The group operations and the group action are required to be definable over $A$.
-Clearly, $\grZ$ also acts on itself by left multiplication.
+We assume that the group operations and the group action are definable over $A$.
 We use the symbol $\,\cdot\,$ for both the group multiplication and the group action.
+Clearly, $\grZ$ also acts on itself by left multiplication.
 
 In this section we deal with the actions of two groups: $\grZ$ and $\Aut(\U/A)$.
-Generic and persistent only refer to the action of $\grZ$, we will always be explicit about invariance.
+Syndetic and thick only refer to the action of $\grZ$.
+We will always be explicit about invariance.
 
 Let $\psi({\mr x}\,;y)\in L(A)$.
 We write $\phi({\mr x}\,;{\gr z}\,;y)$ for the formula $\psi({\gr z^{-1}}\cdot{\mr x}\,;y)$.
@@ -723,15 +726,15 @@ Let ${\gr 1}$ be the identity of $\grZ$ which, for simplicity, we assume is a co
 \begin{fact}
   There are some formulas $\gamma(y),\pi(y)\in L(A)$ such that, for every $a\in\U^y$
 
-  \ceq{\hfill\gamma(a)}{\IFF}{\phi({\mr x}\,;{\gr 1}\,;a)\textrm{ is generic}}
+  \ceq{\hfill\gamma(a)}{\IFF}{\phi({\mr x}\,;{\gr 1}\,;a)\textrm{ is syndetic}}
 
-  \ceq{\hfill\pi(a)}{\IFF}{\phi({\mr x}\,;{\gr 1}\,;a)\textrm{ is persistent}.}
+  \ceq{\hfill\pi(a)}{\IFF}{\phi({\mr x}\,;{\gr 1}\,;a)\textrm{ is thick}.}
 
   Similar claims holds for $\neg\phi({\mr x}\,;{\gr 1}\,;a)$.
 \end{fact}
 
 \begin{proof}
-  By an easy argument of compactness, there is an $n$ such that if $\phi({\mr x}\,;{\gr 1}\,;a)$ is generic then it is also $n$-generic.
+  By an easy argument of compactness, there is an $n$ such that if $\phi({\mr x}\,;{\gr 1}\,;a)$ is syndetic then it is also $n$-syndetic.
   Then
 
   \ceq{\hfill\gamma(y)}{=}{\E{\gr z_1},\dots,{\gr z_n}\ \A{\mr x}\bigvee_{i=1}^n\phi({\mr x}\,;{\gr z_i}\,;y)}
@@ -740,15 +743,15 @@ Let ${\gr 1}$ be the identity of $\grZ$ which, for simplicity, we assume is a co
 \end{proof}
 
  
-As $\phi({\mr x}\,;{\gr g}\,;a)$ is generic/persistent if and only if $\phi({\mr x}\,;{\gr 1}\,;a)$ is such, $\Aut(\U/A)$ maps generic/persistent sets of the form $\phi(\mrX\,;{\gr g}\,;a)$ to generic/persistent sets of the same form.
-% The same is true for generic/persistent types $p({\mr x})\in S_\Delta(\grZ)$ in fact, up to equivalence, we may assume that they contain only formulas of the form $\phi({\mr x}\,;{\gr g}\,;a)$ and negation thereof.
+As $\phi({\mr x}\,;{\gr g}\,;a)$ is syndetic/thick if and only if $\phi({\mr x}\,;{\gr 1}\,;a)$ is such, $\Aut(\U/A)$ maps syndetic/thick sets of the form $\phi(\mrX\,;{\gr g}\,;a)$ to syndetic/thick sets of the same form.
+% The same is true for syndetic/thick types $p({\mr x})\in S_\Delta(\grZ)$ in fact, up to equivalence, we may assume that they contain only formulas of the form $\phi({\mr x}\,;{\gr g}\,;a)$ and negation thereof.
 
 \begin{fact}
-  If $p({\mr x})\in S_\Delta(\grZ)$ is persistent (equivalently, $\grZ$-invariant) then it is invariant over $A$ -- i.e.\@ under the action of $\Aut(\U/A)$.
+  If $p({\mr x})\in S_\Delta(\grZ)$ is thick (equivalently, $\grZ$-invariant) then it is invariant over $A$ -- i.e.\@ under the action of $\Aut(\U/A)$.
 \end{fact}
 
 \begin{proof}
-  By Theorem~\ref{thm_generic_invariant}, $p({\mr x})$ is  $\grZ$-invariant.
+  By Theorem~\ref{thm_syndetic_invariant}, $p({\mr x})$ is  $\grZ$-invariant.
   Therefore $\phi({\mr x}\,;{\gr g}\,;a)\in p$ if and only if  $\phi({\mr x}\,;{\gr 1}\,;a)\in p$.
   As $\phi({\mr x}\,;{\gr 1}\,;a)\iff\phi({\mr x}\,;{\gr 1}\,;fa)$ for every $f\in\Aut(\U/A)$, invariance over $A$ follows.
 \end{proof}
@@ -765,8 +768,8 @@ As $\phi({\mr x}\,;{\gr g}\,;a)$ is generic/persistent if and only if $\phi({\mr
 %   Let $\mrD\subseteq\U^{\mr x}$ be definable over $A$.
 %   Let $\phi({\mr x}\,;{\gr z})$ be the formula ${\mr x}\in{\gr z}\cdot\mrD$.
 %   \begin{itemize}
-%     \item[1.] $\phi({\mr x}\,;{\gr 1})$ is $\grG$-generic
-%     \item[2.] $\mrD$ is generic over $A$.
+%     \item[1.] $\phi({\mr x}\,;{\gr 1})$ is $\grG$-syndetic
+%     \item[2.] $\mrD$ is syndetic over $A$.
 %   \end{itemize}
 % \end{fact}
 
@@ -774,8 +777,8 @@ As $\phi({\mr x}\,;{\gr g}\,;a)$ is generic/persistent if and only if $\phi({\mr
   We assume that the three equivalent conditions in Theorem~\ref{thm_coalesce} hold for $G=\grZ$, $\mrX$, and $\Delta$ introduced in this section.
 \end{assumption}
 
-Under this assumption there is a unique maximal generic type $q({\mr x})\subseteq L_\Delta(\grZ)$.
-The types $p({\mr x})\in S_\Delta(\grZ)$ that extend $q({\mr x})$ are persistent, hence invariant under the action of both $\grZ$ and $\Aut(\U/A)$.
+Under this assumption there is a unique maximal syndetic type $q({\mr x})\subseteq L_\Delta(\grZ)$.
+The types $p({\mr x})\in S_\Delta(\grZ)$ that extend $q({\mr x})$ are thick, hence invariant under the action of both $\grZ$ and $\Aut(\U/A)$.
 
 
 
