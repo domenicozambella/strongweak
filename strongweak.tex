@@ -317,7 +317,7 @@ Such formulas a called $\Delta$-formulas.
 A $\Delta$-definable set is a set of the form $\theta(\U^{\mr x})$ for some $\Delta$-formula $\theta({\mr x})$.
 Subsets of $L_\Delta({\grZ})$ are called $\Delta$-types.
 We write $S_\Delta({\grZ})$ for the set of complete $\Delta$-types with parameters in $\grZ$. Beware that there may be other parameters hidden ion $\Delta)$.
-When convenient, we may asume that complete types only contain formulas of the form $\pm\phi({\mr x}\,;{\gr b})$ for $\phi({\mr x}\,;{\gr z})\in\Delta$.
+When convenient, we may asume that complete types only contain the formulas $\phi({\mr x}\,;{\gr b})$ for $\phi({\mr x}\,;{\gr z})\in\Delta$ or negation thereof.
 
 \begin{assumption}\label{notation_GXphi}
   Let $G$ be a group that acts on $\mrX$ and on $\grZ$ from the left.
@@ -714,7 +714,7 @@ We prove the following theorem.
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Definable groups}\label{definable}
 
-In this section we work as always under Assumption~\ref{notation_GXphi} but with add som,e important requirement on $G$ and $\Delta$.
+In this section we work as always under Assumption~\ref{notation_GXphi} but we further specify $G$ and $\Delta$.
 We set $G=\grZ$ and require that $\grZ$ and $\mrX$ are type-definable over $A$.
 We assume that the group operations and the group action are definable over $A$.
 We use the symbol $\,\cdot\,$ for both the group multiplication and the group action.
@@ -722,7 +722,7 @@ Clearly, $\grZ$ also acts on itself by left multiplication.
 
 In this section we deal with the actions of two groups: $\grZ$ and $\Aut(\U/A)$.
 Generic and persistent only refer to the action of $\grZ$.
-We will always be explicit when we mention invariance.
+We will be explicit about invariance.
 
 Let $\psi({\mr x}\,;y)\in L(A)$.
 We write $\phi({\mr x}\,;{\gr z}\,;y)$ for the formula $\psi({\gr z^{-1}}\cdot{\mr x}\,;y)$.
@@ -740,7 +740,7 @@ Clearly, $\phi(\mrX\,;{\gr g}\,;a)={\gr g}\cdot\phi(\mrX\,;{\gr 1}\,;a)$.
 
   \ceq{\hfill\pi(a)}{\IFF}{\phi({\mr x}\,;{\gr g}\,;a)\textrm{ is persistent}.}
 
-  Similar claims holds for $\neg\phi({\mr x}\,;{\gr 1}\,;a)$.
+  Similar claims holds for $\neg\phi({\mr x}\,;{\gr g}\,;a)$.
 \end{fact}
 
 \begin{proof}
@@ -754,7 +754,7 @@ Clearly, $\phi(\mrX\,;{\gr g}\,;a)={\gr g}\cdot\phi(\mrX\,;{\gr 1}\,;a)$.
 \end{proof}
 
  
-An immediate consequence is that $\Aut(\U/A)$ maps generic/persistent sets of the form $\pm\phi(\mrX\,;{\gr g}\,;a)$ to generic/persistent sets of the same form.
+An immediate consequence is that $\Aut(\U/A)$ maps generic/persistent sets of the form $\phi(\mrX\,;{\gr g}\,;a)$ to generic/persistent sets of the same form.
 % The same is true for generic/persistent types $p({\mr x})\in S_\Delta(\grZ)$ in fact, up to equivalence, we may assume that they contain only formulas of the form $\phi({\mr x}\,;{\gr g}\,;a)$ and negation thereof.
 
 \begin{fact} 
@@ -762,7 +762,7 @@ An immediate consequence is that $\Aut(\U/A)$ maps generic/persistent sets of th
 \end{fact}
 
 \begin{proof}
-  We may assume that $p({\mr x})$ only contains formulas of the form $\pm\phi({\mr x}\,;{\gr b})$ for $\phi({\mr x}\,;{\gr z})\in\Delta$.
+  We may assume that $p({\mr x})$ only contain the formulas $\phi({\mr x}\,;{\gr b})$ for $\phi({\mr x}\,;{\gr z})\in\Delta$ or negation thereof.
   As $p({\mr x})$ is $\grZ$-invariant, $\phi({\mr x}\,;{\gr g}\,;a)\in p\Leftrightarrow\phi({\mr x}\,;{\gr 1}\,;a)\in p$.
   Then, as $\phi({\mr x}\,;{\gr 1}\,;a)\iff\phi({\mr x}\,;{\gr 1}\,;fa)$ for every $f\in\Aut(\U/A)$, invariance over $A$ follows.
 \end{proof}
@@ -784,11 +784,11 @@ An immediate consequence is that $\Aut(\U/A)$ maps generic/persistent sets of th
 %   \end{itemize}
 % \end{fact}
 
-\begin{assumption}
+\begin{assumption}\label{ass_2}
   Assume that the three equivalent conditions in Theorem~\ref{thm_coalesce} hold for $G=\grZ$, $\mrX$, and $\Delta$ introduced in this section.
 \end{assumption}
 
-Under this assumption the types $p({\mr x})\in S_\Delta(\grZ)$ that extend the maximal generic type $q({\mr x})$, see Remark~\ref{rem_coalesce}, are invariant under the action of both $\grZ$ and $\Aut(\U/A)$.
+Under Assumption~\ref{ass_2} the types $p({\mr x})\in S_\Delta(\grZ)$ that extend the maximal generic type $q({\mr x})$, see Remark~\ref{rem_coalesce}, are invariant under the action of both $\grZ$ and $\Aut(\U/A)$\ldots\ldots
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
