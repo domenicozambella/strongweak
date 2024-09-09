@@ -278,7 +278,7 @@ diagrams={>=latex}
 % \author{S. A. Polymath}
 
 \begin{document}
-\author{G.\ A.\ Polymath}
+\author{G.\ A.\ M.\ Polymath}
 \title{Group actions on models}
 \hfill\texttt{Branch:\ \branch\ \DTMnow}
 \maketitle
@@ -289,7 +289,8 @@ diagrams={>=latex}
   A set is \textit{strongly generic\/} if the intersection of any finitely many of its translation is generic.
   To demostrate the convenience of this notion I use it for a short proof of (a generalization of) Newelski's theorem on the diamter of the Lascar graph, see Theorem~\ref{thm_newelski}.
 
-  Theorem~\ref{thm_coalesce} shows that the condition \textit{strongly generic = generic\/} is roboust and may have some interest (it is reminiscent of \textit{forking = dividing\/}).
+  Theorem~\ref{thm_coalesce} shows that the condition \textit{strongly generic = generic\/} is roboust.
+  It might be of some interest (it is reminiscent of \textit{forking = dividing\/}).
   Is it worth investigating?
 
   Section~\ref{definable} is incomplete.
@@ -311,11 +312,12 @@ diagrams={>=latex}
 This section I review well-known matter and set the terminology.
 
 Below $\Delta\subseteq L_{{\mr x}\,{\gr z}}(\U)$, ${\mrX}\subseteq\U^{\mr x}$, and ${\grZ}\subseteq\U^{\gr z}$ are some arbitrary nonempty sets (at some point we will require that $\mrX$ and $\grZ$ are type-definable).
-We write $L_\Delta({\grZ})$ for the set of formulas $\theta({\mr x})$ that are Boolean combination of formulas $\phi({\mr x}\;{\gr b})$ for some $\phi({\mr x}\;{\gr z})\in\Delta$ and some ${\gr b}\in{\grZ}$.
+We write $L_\Delta({\grZ})$ for the set of formulas $\theta({\mr x})$ that are Boolean combination of formulas $\phi({\mr x}\,;{\gr b})$ for some $\phi({\mr x}\,;{\gr z})\in\Delta$ and some ${\gr b}\in{\grZ}$.
 Such formulas a called $\Delta$-formulas.
-A relatively $\Delta$-definable set is a set of the form $\theta(\mrX)$ for some $\Delta$-formula $\theta({\mr x})$.
+A $\Delta$-definable set is a set of the form $\theta(\U^{\mr x})$ for some $\Delta$-formula $\theta({\mr x})$.
 Subsets of $L_\Delta({\grZ})$ are called $\Delta$-types.
 We write $S_\Delta({\grZ})$ for the set of complete $\Delta$-types with parameters in $\grZ$. Beware that there may be other parameters hidden ion $\Delta)$.
+When convenient, we may asume that complete types only contain formulas of the form $\pm\phi({\mr x}\,;{\gr b})$ for $\phi({\mr x}\,;{\gr z})\in\Delta$.
 
 \begin{assumption}\label{notation_GXphi}
   Let $G$ be a group that acts on $\mrX$ and on $\grZ$ from the left.
@@ -390,7 +392,7 @@ In this chapter many proofs require some juggling with negations.
   Then the following are equivalent
   \begin{itemize}
     \item[1.] $p({\mr x})$ is invariant
-    \item[2.] $p({\mr x})\proves{\mr x}\in\mrD$ for every generic relatively $\Delta$-definable set $\mrD$
+    \item[2.] $p({\mr x})\proves{\mr x}\in\mrD$ for every generic $\Delta$-definable set $\mrD$
     \item[3.] $p({\mr x})$ is persistent.
   \end{itemize}
 \end{theorem}
@@ -422,7 +424,7 @@ In this chapter many proofs require some juggling with negations.
 \begin{remark}
   In the theorem above, \ssf2 and \ssf3 can be replaced by
   \begin{itemize}
-    \item[2$'$\!.] $p({\mr x})\proves{\mr x}\in\mrD$ for every 2-generic relatively $\Delta$-definable set $\mrD$
+    \item[2$'$\!.] $p({\mr x})\proves{\mr x}\in\mrD$ for every 2-generic $\Delta$-definable set $\mrD$
     \item[3$'$\!.] $p({\mr x})$ is 2-persistent.
   \end{itemize}
 \end{remark}
@@ -573,24 +575,17 @@ In this section we prove that $\Ll({\mr a}/A)$ is type-definable (if and) only t
 In other words, only if the connected component of ${\mr a}$ in the Lascar graph has finite diameter.
 It is convenient to address the problem in more general terms.
 
-Let $G$ be a normal subgroup of $\Aut(\U)$.
-Let $K\subseteq G$ generate $G$ and is
+Assume $G\trianglelefteq\Aut(\U)$.
+Let $K\subseteq G$ be a set of generators that is
 \begin{itemize}
   \item[1.] symmetric i.e.\@ it contains the unit and is closed under inverse
   \item[2.] conjugancy invariant i.e.\@ $g\,Kg^{-1}=K$ for every $g\in G$
 \end{itemize}
 
-Needless to say we have 
-
-\begin{itemize}
-  \item[3.] $K^nK^m=K^{n+m}$ for every $n,m\in\omega$.
-\end{itemize}
-
 Assume $G$ acts transitively on $\mrX$ i.e., $G\,{\mr a}=\mrX$ for every ${\mr a}\in\mrX$.
 We define a discrete metric on $\mrX$.
 For ${\mr a},{\mr b}\in\mrX$ let $d({\mr a},{\mr b})$ be the minimal $n$ such that ${\mr a}\in K^n{\mr b}$.
-This defines a metric by \ssf1 and \ssf3.
-By \ssf2, this metric in $G$-invariant.
+This defines a metric which is $G$-invariant by \ssf2.
 The \emph{diameter\/} of a set $\mrC\subseteq\mrX$ is the supremum of $d({\mr a},{\mr b})$ for ${\mr a},{\mr b}\in\mrC$.
 
 We are interested in sufficient conditions for $\mrX$ to have finite diameter.
@@ -759,15 +754,16 @@ Clearly, $\phi(\mrX\,;{\gr g}\,;a)={\gr g}\cdot\phi(\mrX\,;{\gr 1}\,;a)$.
 \end{proof}
 
  
-An immediate consequence is that $\Aut(\U/A)$ maps generic/persistent sets of the form $\phi(\mrX\,;{\gr g}\,;a)$ to generic/persistent sets of the same form.
+An immediate consequence is that $\Aut(\U/A)$ maps generic/persistent sets of the form $\pm\phi(\mrX\,;{\gr g}\,;a)$ to generic/persistent sets of the same form.
 % The same is true for generic/persistent types $p({\mr x})\in S_\Delta(\grZ)$ in fact, up to equivalence, we may assume that they contain only formulas of the form $\phi({\mr x}\,;{\gr g}\,;a)$ and negation thereof.
 
-\begin{fact}
+\begin{fact} 
   Let $p({\mr x})\in S_\Delta(\grZ)$ be persistent -- equivalently, $\grZ$-invariant. Then $p({\mr x})$ is invariant over $A$.
 \end{fact}
 
 \begin{proof}
-  As $p({\mr x})$ is $\grZ$-invariant, $\phi({\mr x}\,;{\gr g}\,;a)\in p$ if and only if $\phi({\mr x}\,;{\gr 1}\,;a)\in p$.
+  We may assume that $p({\mr x})$ only contains formulas of the form $\pm\phi({\mr x}\,;{\gr b})$ for $\phi({\mr x}\,;{\gr z})\in\Delta$.
+  As $p({\mr x})$ is $\grZ$-invariant, $\phi({\mr x}\,;{\gr g}\,;a)\in p\Leftrightarrow\phi({\mr x}\,;{\gr 1}\,;a)\in p$.
   Then, as $\phi({\mr x}\,;{\gr 1}\,;a)\iff\phi({\mr x}\,;{\gr 1}\,;fa)$ for every $f\in\Aut(\U/A)$, invariance over $A$ follows.
 \end{proof}
 
@@ -789,7 +785,7 @@ An immediate consequence is that $\Aut(\U/A)$ maps generic/persistent sets of th
 % \end{fact}
 
 \begin{assumption}
-  We assume that the three equivalent conditions in Theorem~\ref{thm_coalesce} hold for $G=\grZ$, $\mrX$, and $\Delta$ introduced in this section.
+  Assume that the three equivalent conditions in Theorem~\ref{thm_coalesce} hold for $G=\grZ$, $\mrX$, and $\Delta$ introduced in this section.
 \end{assumption}
 
 Under this assumption the types $p({\mr x})\in S_\Delta(\grZ)$ that extend the maximal generic type $q({\mr x})$, see Remark~\ref{rem_coalesce}, are invariant under the action of both $\grZ$ and $\Aut(\U/A)$.
@@ -801,8 +797,8 @@ Under this assumption the types $p({\mr x})\in S_\Delta(\grZ)$ that extend the m
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Notes and references}
 
-The connnections with topological dynamics are written on the wall but I ignored them until the very last.
-I realized that \textit{persistent = thick\/} and that \textit{weakly persistent = piecewise syndetic.} 
+Connnections with topological dynamics are mentioned everywhere but I ignored them until the very last.
+I just realized that \textit{persistent = thick\/} and that \textit{weakly persistent = piecewise syndetic.} 
 Of course, \textit{generic = syndetic.}
 The notion of \textit{hereditarely persistent\/} may also have an analogon in topological dynamics, but could not find it yet.
 
