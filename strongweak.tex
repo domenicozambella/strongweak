@@ -317,7 +317,7 @@ Such formulas a called $\Delta$-formulas.
 A $\Delta$-definable set is a set of the form $\theta(\U^{\mr x})$ for some $\Delta$-formula $\theta({\mr x})$.
 Subsets of $L_\Delta({\grZ})$ are called $\Delta$-types.
 We write $S_\Delta({\grZ})$ for the set of complete $\Delta$-types with parameters in $\grZ$. Beware that there may be other parameters hidden ion $\Delta)$.
-When convenient, we may asume that complete types only contain the formulas $\phi({\mr x}\,;{\gr b})$ for $\phi({\mr x}\,;{\gr z})\in\Delta$ or negation thereof.
+When convenient, we may asume that complete types only contain the formulas $\phi({\mr x}\,;{\gr b})$ for $\phi({\mr x}\,;{\gr z})\in\Delta$ or negations thereof.
 
 \begin{assumption}\label{notation_GXphi}
   Let $G$ be a group that acts on $\mrX$ and on $\grZ$ from the left.
@@ -367,22 +367,24 @@ In~\cite{CK} the authors write \textit{quasi-non-dividing\/} for \textit{persist
   In fact, the same ${\mr a}\in A^{\mr x}$ that satisfies $\phi({\mr x})$ also satisfies every $\Aut(\U/A)$-translate of $\phi({\mr x})$.
 \end{example}
 
-In this chapter many proofs require some juggling with negations.
+Notation: for $\mrD\subseteq\U^{\mr x}$ and $H\subseteq G$ we write $H\,\mrD$ for $\{h\mrD: h\in H\}$.
+
+In this notes many proofs require some juggling with negations.
 
 \begin{fact}\label{fact_fip}
   (Assume~\ref{notation_GXphi})\ \  
   The following are equivalent
   \begin{itemize}
-    \item[1.] $\mrD$ is not $n$-generic
-    \item[2.] $\neg\mrD$ is $n$-persistent.
+    \item[1.] $\mrD$ is not generic
+    \item[2.] $\neg\mrD$ is persistent.
   \end{itemize}
 \end{fact}
 
 \begin{proof}
   Immediate by spelling out the definitions\smallskip
   \begin{itemize}
-    \item[1.] there are no $g_1,\dots,g_n\in G$ such that \smash{$\displaystyle\mrX\ \subseteq\ \bigcup_{i=1}^n g_i{\mr\D}$}
-    \item[2.]  $\displaystyle\0\ \neq\ \mrX\,\cap\,\bigcap_{i=1}^n\neg g_i{\mr\D}$ for every $g_1,\dots,g_n\in G$.\qedhere
+    \item[1.] there are no finite $H\subseteq G$ such that $\mrX\ \subseteq\ \cup\, H\,{\mr\D}$.
+    \item[2.]  $\0\ \neq\ \mrX\,\cap\,\big(\cap\, H\neg{\mr\D}\big)$ for every finite $H\subseteq G$.\qedhere
   \end{itemize} 
 \end{proof}
 
@@ -399,14 +401,10 @@ In this chapter many proofs require some juggling with negations.
 
 \begin{proof}
   \ssf1$\IMP$\ssf2.
-  Let $g_1{\mr\D},\dots,g_n{\mr\D}$ be translations of $\mrD$ that cover $\mrX$.
-  Negate \ssf2.
-  By completeness, $p({\mr x})\proves {\mr x}\notin\mrD$.
-  Hence, from invariance we obtain
-
-  \ceq{\hfill p({\mr x})}{\proves}{{\mr x}\ \notin\ \bigcup_{i=1}^ng_i\mrD.}
-
-  This contradicts the finite satisfiability of $p({\mr x})$ in $\mrX$.
+  Let $H\subseteq G$ be finite such that $\mrX\subseteq\cup\,H\,\mrD$.
+  Then $p({\mr x})\proves {\mr x}\in\cup\,H\,\mrD$.
+  By completeness, $p({\mr x})\proves {\mr x}\in h\mrD$ for some $h\in H$.
+  Finally, by invariance,  $p({\mr x})\proves{\mr x}\in\mrD$.
   
   \ssf2$\IMP$\ssf3.
   Let $\mrD$ be defined by a conjunction of formulas in $p({\mr x})$.
@@ -506,8 +504,6 @@ To obtain closure under intersection, we need to push the concept to a higher le
 A set $\mrD\subseteq\U^{\mr x}$ is \emph{strongly generic\/} if the intersection of $\mrD$ with any of its tranlations $\mrD$ is generic.
 Dually, we say that $\mrD$ is \emph{weakly persistent\/} if the union of $\mrD$ with one of its translations is peristent.
 Again, the same properties may be attributed to formulas and types.
-
-Notation: for $\mrB\subseteq\mrX$ and $H\subseteq G$ we write $H\,\mrB$ for $\{h\mrB: h\in H\}$.
 
 \begin{lemma}\label{lem_strongly_generic}
   (Assume~\ref{notation_GXphi})\ \  
@@ -762,7 +758,7 @@ An immediate consequence is that $\Aut(\U/A)$ maps generic/persistent sets of th
 \end{fact}
 
 \begin{proof}
-  We may assume that $p({\mr x})$ only contain the formulas $\phi({\mr x}\,;{\gr b})$ for $\phi({\mr x}\,;{\gr z})\in\Delta$ or negation thereof.
+  We may assume that $p({\mr x})$ only contain the formulas $\phi({\mr x}\,;{\gr b})$ for $\phi({\mr x}\,;{\gr z})\in\Delta$ or negations thereof.
   As $p({\mr x})$ is $\grZ$-invariant, $\phi({\mr x}\,;{\gr g}\,;a)\in p\Leftrightarrow\phi({\mr x}\,;{\gr 1}\,;a)\in p$.
   Then, as $\phi({\mr x}\,;{\gr 1}\,;a)\iff\phi({\mr x}\,;{\gr 1}\,;fa)$ for every $f\in\Aut(\U/A)$, invariance over $A$ follows.
 \end{proof}
