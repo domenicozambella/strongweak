@@ -294,7 +294,7 @@ diagrams={>=latex}
   A set is \textit{strongly generic\/} if the intersection of any finitely many of its translations is generic.
   %To demonstrate the convenience of this notion I use it for a short proof of (a generalization of) Newelski's theorem on the diameter of the Lascar graph, see Theorem~\ref{thm_newelski}.
 
-  Theorem~\ref{thm_coalesce} shows that the condition \textit{strongly generic = generic\/} is roboust.
+  Theorem~\ref{thm_coalesce} shows that the condition \textit{strongly generic = generic\/} is robust.
   It might be of some interest (it is reminiscent of \textit{forking = dividing\/}).
   Does it have interesting examples?
 
@@ -313,7 +313,7 @@ diagrams={>=latex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{The dual perspective on invariance}\label{dual_perspective} 
+\section{The dual perspective on invariance}\label{dual_perspective}
 
 The notions in this section are well-known but sometimes the terminology differs.
 
@@ -325,7 +325,7 @@ Furthermore, we write $S_\Delta(\grZ)$ for the set of complete $\pmDelta(\grZ)$-
 
 We write \emph{$\BDelta(\grZ)$} for the set of Boolean combinations of formulas in $\Delta(\grZ)$.
 
-When $\grZ=\Aa^{\gr z}$ for some $\Aa\subseteq\U$, we may write $\Aa$ for $\Aa^{\gr z}$ in the notation above.
+% When $\grZ=\Aa^{\gr z}$ for some $\Aa\subseteq\U$, we may write $\Aa$ for $\Aa^{\gr z}$ in the notation above.
 
 % Finally, define \emph{$\GDelta(A)$\/} to be the set of formulas $\phi({\mr x})\in L(\U)$ that are equivalent to some formula in $\BDelta(A)$ or, equivalently, that are invariant over $A$.
 % In the literature these formulas are called \textit{generalized\/} $\Delta$-formulas over $A$.
@@ -353,9 +353,9 @@ We say that $p({\mr x})\subseteq\BDelta(\grZ)$ is \emph{invariant\/} under the a
 
 It should be clear that invariant under the action of $\Aut(\U/A)$ coincides with invariant over $A$ and Lascar invariant over $A$ coincides with invariant under the action of $\Autf(\U/A)$.
 
-Note that $p({\mr x})$ is $G$-invariant exactly when the sets ${\gr\D_{p,\theta}}\subseteq\U^{\gr z}$ are.
-In this section we want to discuss invariance using sets $\mrD\subseteq\U^{\mr x}$.
-We need stronger assumptions on the action of $G$.
+Note that $p({\mr x})$ is $G$-invariant exactly when the sets ${\gr\D_{p,\theta}}=\{{\gr b}:\theta({\mr x}\,;{\gr b})\in p\}\subseteq\U^{\gr z}$ are.
+Now we would like to discuss invariance using sets $\mrD\subseteq\U^{\mr x}$.
+For that, we need stronger assumptions on the action of $G$.
 
 An immediate consequence of the invariance of $\phi(\mrX\,;\grZ)$ is that any $G$-translate of a $\BDelta({\grZ})$-definable set is again $\BDelta({\grZ})$-definable.
 In particular, by reasoning as in Remark~\ref{rem_image_def_set} we obtain that for every $\BDelta({\grZ})$-formula $\theta({\mr x}\,;{\gr\bar b})$ and every $g\in G$
@@ -628,7 +628,7 @@ Define the following type
 
 \begin{proof}
   The strong $G$-genericity is an immediate consequence of Lemma~\ref{lem_strongly_generic}.
-  The finite satisfiability is a consequence of $G$-genericity, see Exercise~\ref{ex_gen_sat}.
+  The finite satisfiability is a consequence of $G$-genericity.
   As for invariance, note that any translate of a strongly $G$-generic formula is also strongly $G$-generic.
 \end{proof}
 
@@ -675,7 +675,7 @@ We are interested in sufficient conditions for $\mrX$ to have finite diameter.
 The notions introduced in Section~\ref{strong_genericity} offer some hint.
 
 \begin{proposition}\label{prop_wpers_finite_diameter}
-  If $\mrX$ has a weakly persistent subset of finite diameter, then $\mrX$ itself has finite diamenter.
+  If $\mrX$ has a weakly persistent subset of finite diameter, then $\mrX$ itself has finite diameter.
 \end{proposition}
 
 \begin{proof}
@@ -825,8 +825,8 @@ As it happens, we can slightly strengthen this fact.
 \begin{proof}
   Let $p({\mr x})\in S_\Delta(\grZ)$ be consistent with $\gamma_H({\mr x})$.
   As $\mrD$ is $G$-generic, by completeness $p({\mr x})\proves{\mr x}\in g{\cdot}\mrD$ for some $g\in G$.
-  Equivalently, $g^{-1}p\proves{\mr x}\in\mrD$.
-  As $p({\mr x})$ is $H$-persistent, by Remark~\ref{rem_invariance_normalsubg} $g^{-1}p({\mr x})$ is also $H$-persistent.
+  Equivalently, $g^{-1}\!\cdot p\proves{\mr x}\in\mrD$.
+  As $p({\mr x})$ is $H$-persistent, by Remark~\ref{rem_invariance_normalsubg} $g^{-1}\!\cdot p({\mr x})$ is also $H$-persistent.
   Then the proposition follows from Theorem~\ref{thm_generic_invariant2}.
 \end{proof}
 
