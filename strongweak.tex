@@ -1,5 +1,4 @@
-\documentclass[10pt,openany]{amsproc}
-\usepackage[utf8]{inputenc}
+\documentclass[10pt]{amsproc}
 \usepackage[a4paper,hmargin={4cm,4cm},vmargin={3.5cm,3.5cm}]{geometry}
 \usepackage[colorlinks=true,bookmarksopen=false,linkcolor=blue,citecolor=red]{hyperref}
 \usepackage{calc} 
@@ -68,19 +67,20 @@ diagrams={>=latex}
 \def\CC{\mathds C}
 \def\PP{\mathds P}
 \def\Ar{{\rm Ar}}
-\def\dom{\mathop{\rm dom}}
-\def\range{\mathop{\rm rng}}
-\def\rank{\mathop{\rm rank}}
-\def\dcl{\mathop{\rm dcl}}
-\def\acl{\mathop{\rm acl}}
+\def\dom{\textrm{\rm dom}}
+\def\range{\textrm{\rm rng}}
+\def\rank{\textrm{\rm rank}}
+\def\dcl{\textrm{\rm dcl}}
+\def\acl{\textrm{\rm acl}}
+\def\bdd{\textrm{\rm bdd}}
 \def\fp{{\rm fp}}
-\def\cf{\mathop{\rm cf}}
-\def\rad{\mathop{\rm rad}}
+\def\cf{\textrm{\rm cf}}
+\def\rad{\textrm{\rm rad}}
 \def\eq{{{\rm eq}}}
 \def\ccl{{\rm ccl}}
 \def\Th{{\rm Th}}
 \def\Diag{{\rm Diag}}
-\def\Mod{\mathop{\rm Mod}}
+\def\Mod{\textrm{\rm Mod}}
 \def\Rmod{{\mbox{\scriptsize $R$-mod}}}
 \def\Aut{{\rm Aut\kern.15ex}}
 \def\Autf{\mathord{\rm Aut\kern.15ex{f}\kern.15ex}}
@@ -253,6 +253,7 @@ diagrams={>=latex}
 \def\grD{{\gr\D}}
 \def\grG{{\gr\G}}
 \def\grZ{{\gr\Z}}
+\def\grW{{\gr\W}}
 \def\grV{\V^{\gr z}}
 
 \renewcommand*{\emph}[1]{%
@@ -287,7 +288,6 @@ diagrams={>=latex}
 % \author{G.\ A.\ M.\ Polymath}
 \title{Group actions on models}
 \hfill\texttt{Branch:\ \branch\ \DTMnow}
-\maketitle
 \raggedbottom
 \begin{abstract}
   \setlength{\parindent}{0ex}
@@ -304,6 +304,7 @@ diagrams={>=latex}
   
   The connections with topological dynamics have not been explored :(
 \end{abstract}
+\maketitle
 
 \def\medrel#1{\parbox[t]{5ex}{$\displaystyle\hfil #1$}}
 \def\ceq#1#2#3{\parbox[t]{17ex}{$\displaystyle #1$}\medrel{#2}{$\displaystyle #3$}}
@@ -859,30 +860,14 @@ If $\phi(\mrX\,;{\gr 1})\in\BDelta({\gr 1})$ then $\phi(\mrX\,;{\gr g})={\gr g}\
 The following auxiliary structure is useful.
 Let $\UDelta=\big\<\mrX\,;\grZ\big\>$ be a 2-sorted structure whose signature $\LDelta$ contains relation symbols for every formula $\phi({\mr x}\,;{\gr z})\in\Delta$.
 As there is little risk of confusion, these relations symbols are also denoted by $\phi({\mr x}\,;{\gr z})$.
-In $\LDelta$ we include also symbols for the formulas
-
-\ceq{\hfill\zeta_n({\gr z_1},\dots,{\gr z_n},{\gr z_1'},\dots,{\gr z_n'})}{=}{\E{\gr w}\bigwedge_{i=1}^n {\gr w}\cdot{\gr z_i}={\gr z_i'}}
-
-Finally, note that as $\mrX$ and $\grZ$ are assumed to be type-definable, $\UDelta$ is a saturated $\LDelta$-structure.
-In this section \emph{$G$}$~=~\Aut(\UDelta)$.
-
-% \begin{remark}\label{rem_H}
-%   However, if $\mrD=\phi(\mrX\,;{\gr 1})$ and ${\gr g}\in\grZ$, then $f({\gr g}){\cdot}\mrD=f[{\gr g}{\cdot}\mrD]$ for any $f\in\Aut(\UDelta)$.
-% \end{remark}
 
 To each ${\gr h}\in\grZ$ we associate the $\LDelta$-automorphism $\<{\mr a}\,;{\gr g}\>\mapsto\<{\gr h}{\cdot}{\mr a}\,;{\gr h}{\cdot}{\gr g}\>$.
 Therefore $\grZ$ is, up to isomorphism, a subgroup of $G$.
 In fact, it is a normal subgroup.
+For any ${\gr g}\in\grZ$, the orbit of $\phi(\mrX\,;{\gr g})$ under the action of $\grZ$ is $\{\phi(\mrX\,;{\gr h}) : {\gr h}\in\grZ\}$.
+Therefore it coincides with the orbit under the action of $G$.
 
-\begin{remark}\label{rem_H}
-  It is worth noticing that automorphisms of $\UDelta$ do not preserve the group operations nor the group action.
-  However the formulas $\zeta_n({\gr z_1},\dots,{\gr z_n},{\gr z_1'},\dots,{\gr z_n'})$ ensure that for every automorphism in $f\in G$ and finite set ${\gr B}\subseteq\grZ$, there is an automorphism in ${\gr g}\in \grZ$ that coincides with $f$ on ${\gr B}$.
-  By saturation this is true also for any small set ${\gr B}$.
-  Therefore the $\grZ$-orbit and the $G$-orbit of $\LDelta(\grZ)$-type-definable sets coincide.
-  We conclude that for these sets the notions of generic, persistent, wide under the actions of $G$ and $\grZ$ coincide.
-\end{remark}
-
-We also consider the action some other normal subgroup $H\trianglelefteq G$.
+Now, we consider the action some other normal subgroup \emph{$H$\/} $\trianglelefteq G$.
 
 \begin{proposition}\label{prop_Ggeneric_persistent}
   Let $\mrD$  be a $\BDelta$-definable set.
@@ -915,15 +900,13 @@ We write \emph{$({\gr g})_H$\/} for the $H$-orbit of ${\gr g}$, that is, the set
 \end{proposition}
 
 \begin{proof}
-  Let $f_i\in H$ be such that ${\gr h_i}\in f_i({\gr g_i})$.
   Without loss of generality we can assume that only conjunctions occur in $\theta({\mr x}\,;{\gr g_1},\dots,{\gr g_n})$.
   Let ${\mr\C_i}=\phi_i(\mrX\,;{\gr 1})$.
   Then \ssf1 says that $\mrC={\gr g_1}{\cdot}{\mr\C_1}\cap\dots\cap{\gr g_n}{\cdot}{\mr\C_n}$ is $H$-wide.
   Let $f_i\in H$ be such that ${\gr h_i}=f_i({\gr g_i})$.
   Then, by Corollary~\ref{corol_intersectionGwide} also the intersection of the sets $f_i[\mrC]$ is $H$-wide.
   A fortiori the intersection of the sets $f_i[{\gr g_i}{\cdot}{\mr\C_i}]$ is $H$-wide.
-  Then \ssf1$\IMP$\ssf2 follows from Remark~\ref{rem_H}.
-  By symmetry, this proves the equivalence.
+  As  $f_i[{\gr g_i}{\cdot}{\mr\C_i}]={\gr h_i}{\cdot}{\mr\C_i}$, implication \ssf1$\IMP$\ssf2 follows and, by symmetry, this proves the equivalence.
 \end{proof}
 
 If $\grA\subseteq\grZ$, we write \emph{$\<\grA\>$} for the subgroup generated by $\grA$.
@@ -939,7 +922,7 @@ If $\grA\subseteq\grZ$, we write \emph{$\<\grA\>$} for the subgroup generated by
 
 \begin{proof}
   We proceed by induction on the number of factors of the form ${\gr a^{-1}}\!\cdot{\gr b}$, for some ${\gr a},{\gr b}\in({\gr g})_H$, that occur in ${\gr h_1},\dots,{\gr h_n}$.
-  Without loss of generality we can assume that only conjunctions occur in $\theta({\mr x}\,;{\gr g_1},\dots,{\gr g_n})$.
+  Without loss of generality we can assume that only conjunctions occur in $\theta({\mr x}\,;{\gr 1},\dots,{\gr 1})$.
   Let ${\mr\C_i}=\phi_i(\mrX\,;{\gr 1})$.
   Assume inductively that ${\gr h_1}{\cdot}{\mr\C_1}\cap\dots\cap{\gr h_n}{\cdot}{\mr\C_n}$ is $H$-wide.
   Pick two arbitrary ${\gr a},{\gr b}\in({\gr g})_H$.
