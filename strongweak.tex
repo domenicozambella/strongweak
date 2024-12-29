@@ -204,7 +204,7 @@ diagrams={>=latex}
 \newtheorem{proposition}[thm]{Proposition}\tcolorboxenvironment{proposition}{mythm}
 \newtheorem{lemma}[thm]{Lemma}\tcolorboxenvironment{lemma}{mythm}
 \newtheorem{fact}[thm]{Fact}\tcolorboxenvironment{fact}{mythm}
-\newtheorem{conjecture}[thm]{Conjecture}\tcolorboxenvironment{fact}{mythm}
+\newtheorem{conjecture}[thm]{Conjecture}\tcolorboxenvironment{conjecture}{mythm}
 \newtheorem{definition}[thm]{Definition}\tcolorboxenvironment{definition}{mythm}
 \newtheorem{assumption}[thm]{Assumption}\tcolorboxenvironment{assumption}{mythm}
 \newtheorem{void}[thm]{}\tcolorboxenvironment{void}{mythm}
@@ -213,7 +213,7 @@ diagrams={>=latex}
 \newtheorem{note}[thm]{Note}\tcolorboxenvironment{note}{mythm}
 \newtheorem{exercise}[thm]{Exercise}
 \newtheorem{question}[thm]{Question}
-\newtheorem{example}[thm]{Example}\tcolorboxenvironment{example}{mythm}
+\newtheorem{example}[thm]{Example}
 
 \makeatletter
 \providecommand{\proofNameStyle}{\bfseries}
@@ -550,15 +550,6 @@ A type is $G$-wide if every conjunction of formulas in the type is $G$-wide.
   Let $p({\mr x})\in S_\Delta(\grZ)$ be a $G$-persistent type such that $p({\mr x})\proves{\mr x}\in\mrD$.
   By $G$-invariance $p({\mr x})\proves{\mr x}\in{\gr g}{\cdot}\mrD$. 
 \end{proof}
-
-\begin{fact}
-  Let $\mrD$ be a $\BDelta(\grZ)$-definable set.
-  The following are equivalent
-  \begin{itemize}
-    \item [1.] $\mrD$ is $G$-wide;
-    \item [2.] every finite cover of $\mrD$ by $\pmDelta({\grZ})$-definable sets contains a $G$-persistent set.
-  \end{itemize}
-\end{fact}
 
 Let $q({\mr x})\subseteq\BDelta(\grZ)$ be $G$-invariant.
 We say that $q({\mr x})$ is \emph{$G$-prime\/} if for every $\BDelta(\grZ)$-definable set $\mrD$ and every $g\in G$ if $q({\mr x})\proves{\mr x}\in(\mrD\cup g{\cdot}\mrD)$ then $q({\mr x})\proves{\mr x}\in\mrD$.
